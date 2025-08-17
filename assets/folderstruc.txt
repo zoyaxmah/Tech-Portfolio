@@ -1,0 +1,8 @@
+moon-icon.png
+  - sun-icon.png
+  - html-icon.png
+  - css-icon.png
+  - js-icon.png
+  - react-icon.png
+  - spinner.gif
+  - checkmark.png
