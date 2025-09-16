@@ -79,7 +79,6 @@ document.addEventListener('DOMContentLoaded', function () {
 
         ssLeft.addEventListener('click', () => {
             if (ssGrid.scrollLeft <= 0) {
-                // if at start, jump to end
                 scrollToEnd();
             } else {
                 ssGrid.scrollBy({ left: -getStep(), behavior: 'smooth' });
@@ -89,7 +88,6 @@ document.addEventListener('DOMContentLoaded', function () {
         ssRight.addEventListener('click', () => {
             const maxScroll = ssGrid.scrollWidth - ssGrid.clientWidth;
             if (ssGrid.scrollLeft >= maxScroll - 5) {
-                // if at end, jump to start
                 scrollToStart();
             } else {
                 ssGrid.scrollBy({ left: getStep(), behavior: 'smooth' });
@@ -141,7 +139,7 @@ document.addEventListener('DOMContentLoaded', function () {
         });
     }
 
-    // === Section reveal on scroll ===
+    // === Section reveal on scroll (page-wide animation) ===
     const sections = document.querySelectorAll('section');
     const sectionObserver = new IntersectionObserver((entries) => {
         entries.forEach(entry => {
@@ -156,7 +154,7 @@ document.addEventListener('DOMContentLoaded', function () {
     sections.forEach(section => {
         if (section !== document.querySelector('.hero')) {
             section.style.opacity = '0';
-            section.style.transform = 'translateY(30px)';
+            section.style.transform = 'translateY(30px)'; // <-- slide-in effect
             section.style.transition = 'opacity 0.8s ease, transform 0.8s ease';
             sectionObserver.observe(section);
         }
