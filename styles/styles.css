@@ -4,10 +4,12 @@
   box-sizing: border-box;
 }
 
+/* Add body padding so content doesn’t hide behind header */
 body {
   font-family: 'Poppins', sans-serif;
   background-color: #fffaf5;
   color: #1a1a1a;
+  padding-top: 100px;   /* adjust this = header height */
 }
 
 /* Header Styles */
@@ -18,7 +20,15 @@ header {
   justify-content: space-between;
   align-items: center;
   padding: 30px;
+  position: fixed;      /* keeps it stuck to top */
+  top: 0;               /* stick to very top */
+  left: 0;
+  width: 100%;          /* full width */
+  z-index: 1000;        /* keep it above other content */
 }
+
+
+
 
 header h1 {
   font-weight: 800;
