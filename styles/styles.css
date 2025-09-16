@@ -137,7 +137,7 @@ nav a:hover::after {
   position: relative;
 }
 
-.soft-skills #soft-skills-grid {
+#soft-skills-grid {
   display: flex;
   gap: 20px;
   margin-top: 40px;
@@ -148,16 +148,16 @@ nav a:hover::after {
   -webkit-overflow-scrolling: touch;
 }
 
-.soft-skills #soft-skills-grid .skill-item {
-  flex: 0 0 clamp(260px, 35vw, 340px);
+#soft-skills-grid .skill-item {
+  flex: 0 0 clamp(260px, 35vw, 340px); /* fixed width similar to technical skills */
   scroll-snap-align: start;
 }
 
 /* Hide scrollbar */
-.soft-skills #soft-skills-grid::-webkit-scrollbar {
+#soft-skills-grid::-webkit-scrollbar {
   display: none;
 }
-.soft-skills #soft-skills-grid {
+#soft-skills-grid {
   -ms-overflow-style: none;
   scrollbar-width: none;
 }
@@ -168,13 +168,13 @@ nav a:hover::after {
   top: 50%;
   transform: translateY(-50%);
   border: none;
-  background: rgba(17, 17, 17, 0.8); /* slightly lighter */
+  background: rgba(17, 17, 17, 0.8);
   color: #fff;
-  width: 28px;       /* smaller circle */
+  width: 28px;
   height: 28px;
   border-radius: 50%;
   cursor: pointer;
-  font-size: 16px;   /* smaller chevron */
+  font-size: 16px;
   line-height: 28px;
   text-align: center;
   box-shadow: 0 3px 8px rgba(0,0,0,0.15);
@@ -186,12 +186,6 @@ nav a:hover::after {
 .ss-arrow:hover { transform: translateY(-50%) scale(1.1); }
 .ss-arrow.left  { left: 8px; }
 .ss-arrow.right { right: 8px; }
-
-/* Dark mode arrows */
-body.dark-mode .ss-arrow {
-  background: rgba(255,255,255,0.15);
-  color: #f1f1f1;
-}
 
 
 /* Certifications Section */

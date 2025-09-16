@@ -3,16 +3,15 @@ document.addEventListener('DOMContentLoaded', function () {
     const body = document.body;
     const darkModeIcon = document.getElementById('dark-mode-icon');
 
-    // Check saved theme
+    // === Check saved theme ===
     if (localStorage.getItem('theme') === 'dark') {
         body.classList.add('dark-mode');
         darkModeIcon.src = "assets/sun-icon.png";
     }
 
-    // Toggle dark mode
+    // === Toggle dark mode ===
     toggleButton.addEventListener('click', () => {
         body.classList.toggle('dark-mode');
-
         if (body.classList.contains('dark-mode')) {
             darkModeIcon.src = "assets/sun-icon.png";
             localStorage.setItem('theme', 'dark');
@@ -22,7 +21,7 @@ document.addEventListener('DOMContentLoaded', function () {
         }
     });
 
-    // Animate skill items on load
+    // === Animate skill items on load ===
     const skillItems = document.querySelectorAll('.skill-item');
     if (skillItems.length > 0) {
         skillItems.forEach((item, index) => {
@@ -37,7 +36,7 @@ document.addEventListener('DOMContentLoaded', function () {
         });
     }
 
-    // Animate project cards on scroll
+    // === Animate project cards on scroll ===
     const projectCards = document.querySelectorAll('.project-card');
     if (projectCards.length > 0) {
         const observer = new IntersectionObserver((entries) => {
@@ -58,7 +57,7 @@ document.addEventListener('DOMContentLoaded', function () {
         });
     }
 
-    // Soft Skills horizontal scroll controls
+    // === Soft Skills wrap-around scroll controls ===
     const ssGrid = document.getElementById('soft-skills-grid');
     const ssLeft = document.querySelector('.ss-arrow.left');
     const ssRight = document.querySelector('.ss-arrow.right');
@@ -66,19 +65,38 @@ document.addEventListener('DOMContentLoaded', function () {
     if (ssGrid && ssLeft && ssRight) {
         const getStep = () => {
             const card = ssGrid.querySelector('.skill-item');
-            const gap = 20;
+            const gap = 20; // matches your CSS gap
             return (card ? card.offsetWidth : 300) + gap;
         };
 
+        const scrollToStart = () => {
+            ssGrid.scrollTo({ left: 0, behavior: 'smooth' });
+        };
+
+        const scrollToEnd = () => {
+            ssGrid.scrollTo({ left: ssGrid.scrollWidth, behavior: 'smooth' });
+        };
+
         ssLeft.addEventListener('click', () => {
-            ssGrid.scrollBy({ left: -getStep(), behavior: 'smooth' });
+            if (ssGrid.scrollLeft <= 0) {
+                // if at start, jump to end
+                scrollToEnd();
+            } else {
+                ssGrid.scrollBy({ left: -getStep(), behavior: 'smooth' });
+            }
         });
 
         ssRight.addEventListener('click', () => {
-            ssGrid.scrollBy({ left: getStep(), behavior: 'smooth' });
+            const maxScroll = ssGrid.scrollWidth - ssGrid.clientWidth;
+            if (ssGrid.scrollLeft >= maxScroll - 5) {
+                // if at end, jump to start
+                scrollToStart();
+            } else {
+                ssGrid.scrollBy({ left: getStep(), behavior: 'smooth' });
+            }
         });
 
-        // Allow vertical scroll wheel to move horizontally
+        // Wheel support
         ssGrid.addEventListener('wheel', (e) => {
             if (Math.abs(e.deltaY) > Math.abs(e.deltaX)) {
                 e.preventDefault();
@@ -87,7 +105,7 @@ document.addEventListener('DOMContentLoaded', function () {
         }, { passive: false });
     }
 
-    // Contact form animation
+    // === Contact form animation ===
     const contactForm = document.querySelector('.contact form');
     if (contactForm) {
         contactForm.addEventListener('submit', function (e) {
@@ -123,7 +141,7 @@ document.addEventListener('DOMContentLoaded', function () {
         });
     }
 
-    // Section reveal on scroll
+    // === Section reveal on scroll ===
     const sections = document.querySelectorAll('section');
     const sectionObserver = new IntersectionObserver((entries) => {
         entries.forEach(entry => {
@@ -144,7 +162,7 @@ document.addEventListener('DOMContentLoaded', function () {
         }
     });
 
-    // Typing animation for hero title
+    // === Typing animation for hero title ===
     const heroTitle = document.querySelector('.hero h1');
     if (heroTitle) {
         const text = heroTitle.textContent;
@@ -168,7 +186,7 @@ document.addEventListener('DOMContentLoaded', function () {
     }
 });
 
-// Cursor animation CSS
+// === Cursor animation CSS ===
 const style = document.createElement('style');
 style.textContent = `
     @keyframes blinking-cursor {
