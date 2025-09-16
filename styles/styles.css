@@ -17,7 +17,7 @@ header {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 20px;
+  padding: 30px;
   
 }
 
@@ -80,13 +80,13 @@ nav a:hover::after {
 
 /* About Section */
 .about {
-  padding: 80px 60px;
+  padding: 30px 60px;
   background-color: #fff;
 }
 
 /* Skills Section */
 .skills {
-  padding: 80px 60px;
+  padding: 30px 60px;
   background-color: #f8f8f8;
 }
 
@@ -123,7 +123,7 @@ nav a:hover::after {
 
 /* Experience/Timeline Styles */
 .timeline {
-  margin-top: 40px;
+  margin-top: 20px;
 }
 
 .timeline-item {
@@ -196,9 +196,10 @@ nav a.active {
 }
 
 .skill-icon {
-  width: 48px;
-  height: 48px;
-  margin-bottom: 20px;
+  height: 60px;   /* controls overall size */
+  width: auto;    /* keeps natural proportions */
+  margin-bottom: 10px;
+  object-fit: contain; /* makes sure logos don't get distorted */
 }
 
 #toggle-dark-mode {
@@ -220,7 +221,7 @@ nav a.active {
 
 /* Projects Section Styles */
 .projects-container {
-  margin-top: 40px;
+  margin-top: 20px;
 }
 
 .project-card {
@@ -277,5 +278,9 @@ body.dark-mode .project-header {
 
 body.dark-mode .project-date {
   color: #aaa;
+}
+
+.section-intro {
+  padding-top: 10px;
 }
 
