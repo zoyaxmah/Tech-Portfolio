@@ -6,8 +6,7 @@ This project was created to practice and strengthen my skills in **HTML, CSS, an
 ## Features Included
 - 🌗 Dark mode and light mode toggle  
 - 🧭 Responsive navigation bar  
-- 🎨 CSS animations and transitions  
-- 📱 Mobile-friendly layout  
+- 🎨 CSS animations and transitions 
 - 🖼️ Organised sections for projects, experience, volunteering, and contact  
 
 ---
